@@ -52,16 +52,6 @@ namespace Interpolation {
         matrix.set_element(N - 2, 1, static_cast<scalar>(2));
         matrix.set_element(N - 2, 2, static_cast<scalar>(0));
 
-        for (int i = 0; i < matrix.get_data().size() / 3; i++)
-        {
-            std::cout << matrix.get_data()[3 * i];
-            std::cout << " ";
-            std::cout << matrix.get_data()[3 * i + 1];
-            std::cout << " ";
-            std::cout << matrix.get_data()[3 * i + 2];
-            std::cout << std::endl;
-        }
-
         std::array<scalar, N - 1> c = solve_three_diagonal_matrix(matrix, col);
 
         res[0][0] = ys[1];
@@ -91,7 +81,6 @@ namespace Interpolation {
             i++;
             tmp = xs_[i + 1];
         }
-        std::cout << i << std::endl;
         scalar dif = (x - xs_[i + 1]);
         return C_[i][0] + C_[i][1] * dif + C_[i][2] / 2 * dif * dif + C_[i][3] / 6 * dif * dif * dif;
     }
